@@ -1,10 +1,10 @@
 import java.util.List;
 
-public class Estudiante implements Persona {
-private final String codigo;
-private final String nombre;
-private final String direccion;
-private final List<String> telefonos;
+public class Estudiante {
+    private String codigo;
+    private String nombre;
+    private String direccion;
+    private List<String> telefonos;
 
     public Estudiante(String codigo, String nombre, String direccion, List<String> telefonos) {
         this.codigo = codigo;
@@ -13,34 +13,17 @@ private final List<String> telefonos;
         this.telefonos = telefonos;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public boolean tieneDatosCompletos() {
+        return codigo != null && nombre != null && direccion != null && telefonos != null && !telefonos.isEmpty();
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public List<String> getTelefonos() {
-        return telefonos;
-    }
-
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
-
-    @Override
-    public String toString() {
-        return "Estudiante{" +
-                "codigo='" + codigo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telefonos=" + telefonos +
-                '}';
-    }
+   @Override
+public String toString() {
+    return "Estudiante{" +
+           "codigo='" + codigo + '\'' +
+           ", nombre='" + nombre + '\'' +
+           ", direccion='" + direccion + '\'' +
+           ", telefonos=" + telefonos +
+           '}';
+}
 }

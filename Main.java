@@ -1,15 +1,23 @@
-import java.util.*;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        List<Persona> personas = new ArrayList<>();
+        // Creamos una colección tipo ArrayList
+        ListaEstudiantesArray listaArray = new ListaEstudiantesArray();
+        listaArray.addEstudiante(new Estudiante("001", "Ana", "Calle 1", Arrays.asList("123")));
+        listaArray.addEstudiante(new Estudiante("002", "Luis", null, Arrays.asList("456"))); // Dirección faltante
 
-        personas.add(new Estudiante("123", "Ana", "Calle 1", Arrays.asList("555-1234")));
-        personas.add(new Docente("9876", "Profesor López", "Calle 2", Arrays.asList("555-4321")));
-        personas.add(new Docente("123456", "Docente X", "Calle 3", Arrays.asList("555-0000"))); // código largo
-        personas.add(new Estudiante("456", "Luis", null, Arrays.asList())); // incompleto
+        // Creamos una colección tipo TreeSet
+        ListaEstudiantesTree listaTree = new ListaEstudiantesTree();
+        listaTree.addEstudiante(new Estudiante("003", "Carlos", "Calle 3", Arrays.asList("789")));
+        listaTree.addEstudiante(new Estudiante("004", "Laura", "Calle 4", Arrays.asList())); // Sin teléfono
 
         Cliente cliente = new Cliente();
-        cliente.procesarPersonas(personas);
+
+        System.out.println(" Procesando estudiantes en lista Array:");
+        cliente.procesarEstudiantes(listaArray);
+
+        System.out.println("\n Procesando estudiantes en conjunto Tree:");
+        cliente.procesarEstudiantes(listaTree);
     }
 }
